@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Series</title>
+</head>
+<body>
+    
+    <a th:href="@{/paginas/series/novo}">Cadastrar Nova Série</a>
+    
+    <br><br>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Plataforma</th>
+                <th>Gênero</th>
+                <th>Ano de Lançamento</th>
+                <th>Ações</th> 
+            </tr>
+        </thead> 
+        <tbody>
+            <tr th:each="serie : ${series}">
+                <td th:text="${serie.id}">Id</td>
+                <td th:text="${serie.nome}">Nome</td>
+                <td th:text="${serie.plataforma}">Plataforma</td>
+                <td th:text="${serie.genero}">Gênero</td>
+                <td th:text="${serie.anoLancamento}">Ano Lancamento</td>
+                
+                <td>
+                    <a th:href="@{/paginas/series/{id}/editar(id=${serie.id})}">Editar</a>
+                    
+                    <form th:action="@{/paginas/series/{id}/remover(id=${serie.id})}" method="post" style="display:inline;">
+                        <button type="submit">Remover</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

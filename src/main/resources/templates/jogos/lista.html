@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Lista de Jogos</title>
+	
+</head>
+
+<body>
+	
+	<a th:href="@{/paginas/jogos/novo}">Cadastrar novo jogo</a>
+	
+	<h1>Lista de Jogos</h1>
+	
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nome</th>
+				<th>Desenvolvedora</th>
+				<th>Plataforma</th>
+				<th>Ano Lançamento</th>
+				<th>Ações</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="jogo : ${jogos}">
+			<td th:text="${jogo.id}">Id</td>
+			<td th:text="${jogo.nome}">Nome</td>
+			<td th:text="${jogo.desenvolvedora}">Desenvolvedora</td>
+			<td th:text="${jogo.plataforma}">Plataforma</td>
+			<td th:text="${jogo.anoLancamento}">Ano Lançamento</td>
+			<td>
+				<a th:href="@{/paginas/jogos/{id}/editar(id=${jogo.id})}">Editar</a>
+			
+				<form th:action="@{/paginas/jogos/{id}/remover(id=${jogo.id})}" method="post" style="display:inline">
+				<button type="submit">Remover</button>
+				</form>
+			</td>
+			</tr>
+			</tbody>
+			</table>
+			</body>
+			</html>

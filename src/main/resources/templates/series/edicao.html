@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+	
+<head>
+	<meta charset="UTF-8">
+	<title>Edição de Jogo</title>
+</head>
+
+<body>
+	<form th:action="@{/paginas/series/editar}" th:object="${serie}" method="post">
+		<input type="hidden" th:field="*{id}">
+	
+		<p>
+			<label>Nome</label>
+			<input type="text" th:field="*{nome}">
+		</p>
+		
+		<p>
+			
+			<label>Plataforma</label>
+			<input type="text" th:field="*{plataforma}">
+		</p>
+		
+	    <p>
+			<label>Gênero</label>
+			<input type="text" th:field="*{genero}">
+		</p>
+		
+		<p>
+			<label>Ano de lançamento</label>
+			<input type="number" th:field="*{anoLancamento}">
+		</p>
+		
+		<button type="submit">Salvar</button>
+		<a th:href="@{/paginas/series}">Cancelar</a>
+		
+		</form>
+		</body>
+		</html>
+			

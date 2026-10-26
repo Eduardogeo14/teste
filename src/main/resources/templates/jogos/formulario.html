@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://thymeleaf.org">
+	
+<head>
+	
+	<meta charset="UTF-8">
+	<title>Cadastro do Jogo</title>
+	
+</head>
+
+<body>
+	<form th:action="@{/paginas/jogos/novo}" th:object="${jogo}" method="post">
+	<p>
+		<label>Nome</label>
+		<input type="text" th:field="*{nome}">
+	</p>
+	
+	<p>
+		<label>Desenvolvedora</label>
+		<input type="text" th:field="*{desenvolvedora}">
+	</p>
+	
+	<p>
+		<label>Plataforma</label>
+		<input type="text" th:field="*{plataforma}">
+	</p>
+	
+	<p>
+		<label>Ano de lançamento</label>
+		<input type="number" th:field="*{anoLancamento}">
+	</p>
+	
+	<button type="submit">Salvar</button>
+	<a th:href="@{/paginas/jogos}">Cancelar</a>
+	
+	</form>
+	</body>
+	</html>
+		
